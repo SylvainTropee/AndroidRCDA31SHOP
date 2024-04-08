@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">eni-shop</string>
+    <string name="article_title">Title</string>
+    <string name="article_description">Description</string>
+    <string name="article_price">Price</string>
+    <string name="article_date">Release date</string>
+</resources>

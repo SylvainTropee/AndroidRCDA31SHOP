@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">eni-shop</string>
+    <string name="article_title">Titre</string>
+    <string name="article_description">Description</string>
+    <string name="article_price">Prix</string>
+    <string name="article_date">Sortie initiale</string>
 </resources>
