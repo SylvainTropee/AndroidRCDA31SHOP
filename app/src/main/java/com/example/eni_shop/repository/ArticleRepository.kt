@@ -15,5 +15,8 @@ object ArticleRepository {
     fun addArticle(article: Article) : Long{
         return articleDAO.addNewOne(article)
     }
+    fun getAllArticles(): List<Article> {
+        return articleDAO.selectAll()
+    }
 
 }
