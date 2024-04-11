@@ -16,8 +16,8 @@ class ArticleDaoMemoryImpl : ArticleDAO {
             "https://m.media-amazon.com/images/I/61-GeOlhtlL._AC_SX679_.jpg",
             Date()
         ),
-        Article(2, "Ecran", "Ecran 27\" FULL HD", 780.40, "", Date()),
-        Article(3, "Barrete de mémoire vive", "RAM 2 x 16Go", 45.90, "", Date())
+        Article(2, "Ecran", "Ecran 27\" FULL HD", 780.40, "https://m.media-amazon.com/images/I/61-GeOlhtlL._AC_SX679_.jpg", Date()),
+        Article(3, "Barrete de mémoire vive", "RAM 2 x 16Go", 45.90, "https://m.media-amazon.com/images/I/61-GeOlhtlL._AC_SX679_.jpg", Date())
     )
     override fun selectById(id: Long): Article? {
         return articlesInMemory.first {article -> article.id == id }

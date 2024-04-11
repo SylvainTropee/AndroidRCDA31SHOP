@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("androidx.navigation.safeargs")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -40,6 +43,9 @@ android {
 }
 
 dependencies {
+
+    //Picasso pour image du web
+    implementation ("com.squareup.picasso:picasso:2.8")
 
     val nav_version = "2.5.3"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
