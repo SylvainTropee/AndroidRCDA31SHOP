@@ -1,5 +1,8 @@
 package com.example.eni_shop.ui
 
+import android.app.SearchManager
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,7 +16,7 @@ import com.squareup.picasso.Picasso
 
 class DetailArticleFragment : Fragment() {
 
-    val args  by navArgs<DetailArticleFragmentArgs>()
+    val args by navArgs<DetailArticleFragmentArgs>()
     lateinit var binding: FragmentDetailArticleBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +33,19 @@ class DetailArticleFragment : Fragment() {
         val article = args.article
         binding.article = article
         Picasso.get().load(article.urlImage).into(binding.imageView);
+
+        binding.tvTitle.setOnClickListener {
+//            Intent(Intent.ACTION_WEB_SEARCH).also {
+//                it.putExtra(SearchManager.QUERY, "eni-shop " + article.titre)
+//            }.also {
+//                startActivity(it)
+//            }
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.google.com/search?q=eni-shop+" + article.titre)
+            ).also {
+                startActivity(it)
+            }
+        }
     }
-
-
 }

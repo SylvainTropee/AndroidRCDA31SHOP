@@ -1,5 +1,6 @@
 package com.example.eni_shop.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -19,16 +20,25 @@ class AddArticleActivity : AppCompatActivity() {
 //        binding = ActivityMainBinding.inflate(layoutInflater)
 //        setContentView(binding.root)
 
-        val article = ArticleRepository.getArticle(2)
         //binding.article = article
         binding.article = Article()
+
         binding.btnSave.setOnClickListener {
+            val article = binding.article
+            ArticleRepository.addArticle(article!!)
 
             Snackbar.make(
                 it,
                 "Vous venez de créér ${binding.article?.titre} pour un montant de ${binding.article?.prix} €",
                 Snackbar.LENGTH_LONG
             ).show()
+
+            Intent(this, HomeActivity::class.java).also {
+                it.putExtra("title", article.titre)
+                it.putExtra("price", article.prix.toString())
+                startActivity(it)
+            }
+
         }
     }
 }
