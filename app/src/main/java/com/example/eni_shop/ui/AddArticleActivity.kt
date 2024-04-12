@@ -27,18 +27,11 @@ class AddArticleActivity : AppCompatActivity() {
             val article = binding.article
             ArticleRepository.addArticle(article!!)
 
-            Snackbar.make(
-                it,
-                "Vous venez de créér ${binding.article?.titre} pour un montant de ${binding.article?.prix} €",
-                Snackbar.LENGTH_LONG
-            ).show()
-
             Intent(this, HomeActivity::class.java).also {
                 it.putExtra("title", article.titre)
                 it.putExtra("price", article.prix.toString())
                 startActivity(it)
             }
-
         }
     }
 }
