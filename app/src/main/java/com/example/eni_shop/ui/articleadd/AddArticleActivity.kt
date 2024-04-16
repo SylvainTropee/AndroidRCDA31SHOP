@@ -18,11 +18,6 @@ class AddArticleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_article)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-
-        //binding.article = article
-        binding.article = Article()
 
         // binder le view model
         val viewModel = AddArticleViewModel();
@@ -32,7 +27,7 @@ class AddArticleActivity : AppCompatActivity() {
         viewModel.addSuccess.observe(this, Observer {
             // Si true : donc article ajouté avec succès
             if (it){
-                val article = binding.article!!
+                val article = viewModel.article!!
 
                 Intent(this, HomeActivity::class.java).also {
                     it.putExtra("title", article.titre)
@@ -44,8 +39,7 @@ class AddArticleActivity : AppCompatActivity() {
 
         // Quand on appuye sur le bouton
         binding.btnSave.setOnClickListener {
-            val article = binding.article
-            viewModel.addArticle(article!!)
+            viewModel.addArticle()
         }
     }
 }

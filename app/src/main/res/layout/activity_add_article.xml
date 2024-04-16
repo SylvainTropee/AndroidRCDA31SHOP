@@ -7,9 +7,6 @@
         <variable
             name="viewModel"
             type="com.example.eni_shop.ui.articleadd.AddArticleViewModel" />
-        <variable
-            name="article"
-            type="com.example.eni_shop.bo.Article" />
         <import type="com.example.eni_shop.utils.Converter" />
     </data>
 
@@ -40,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/article_title"
                     android:inputType="text"
-                    android:text="@={article.titre}" />
+                    android:text="@={viewModel.article.titre}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +67,7 @@
             android:ems="10"
             android:hint="@string/article_description"
             android:inputType="text"
-            android:text="@={article.description}"
+            android:text="@={viewModel.article.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_title" />
@@ -85,7 +82,7 @@
             android:ems="10"
             android:hint="@string/article_price"
             android:inputType="numberDecimal"
-            android:text="@={`` + article.prix}"
+            android:text="@={`` + viewModel.article.prix}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_description" />
@@ -100,7 +97,7 @@
             android:ems="10"
             android:hint="@string/article_date"
             android:inputType="date"
-            android:text="@{Converter.dateToString(article.dateSortie)}"
+            android:text="@{Converter.dateToString(viewModel.article.dateSortie)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_price" />

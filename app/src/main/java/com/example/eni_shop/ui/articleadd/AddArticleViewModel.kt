@@ -13,9 +13,11 @@ class AddArticleViewModel : ViewModel() {
      */
     var addSuccess = MutableLiveData<Boolean>(false);
 
-    fun addArticle(newArticle : Article){
+    var article = Article()
+
+    fun addArticle(){
         // Ajouter l'article dans la DAO
-        ArticleRepository.addArticle(newArticle)
+        ArticleRepository.addArticle(article)
 
         // Notifier que l'article a été ajouté
         // PS : va enclencher l'event it = true
