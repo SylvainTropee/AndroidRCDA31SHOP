@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="com.example.eni_shop.ui.articleadd.AddArticleViewModel" />
+        <variable
             name="article"
             type="com.example.eni_shop.bo.Article" />
         <import type="com.example.eni_shop.utils.Converter" />
@@ -14,7 +17,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.AddArticleActivity">
+        tools:context=".ui.articleadd.AddArticleActivity">
 
         <LinearLayout
             android:id="@+id/et_title"

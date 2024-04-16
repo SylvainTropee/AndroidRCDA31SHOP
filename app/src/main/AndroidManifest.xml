@@ -23,7 +23,7 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".ui.AddArticleActivity"
+            android:name=".ui.articleadd.AddArticleActivity"
             android:exported="true">
         </activity>
     </application>
