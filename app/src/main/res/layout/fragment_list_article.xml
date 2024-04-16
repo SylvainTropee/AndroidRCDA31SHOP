@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.example.eni_shop.ui.articlelist.ListArticleViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.ListArticleFragment">
+        tools:context=".ui.articlelist.ListArticleFragment">
 
         <Button
             android:id="@+id/buttonToDetail"
