@@ -4,10 +4,10 @@ import com.example.eni_shop.bo.Article
 
 interface ArticleDAO {
 
-    fun selectById(id : Long) : Article?
+    suspend fun selectById(id : Long) : Article?
 
-    fun addNewOne(article: Article) : Long
+    suspend fun addNewOne(article: Article) : Long
 
-    fun selectAll() : List<Article>
+    suspend fun selectAll() : List<Article>
 
 }

@@ -27,7 +27,7 @@ class ListArticleFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_article, container, false)
 
         // Creer un view model et associer à la vue
-        viewModel = ListArticleViewModel()
+        viewModel = ListArticleViewModel(requireContext())
         binding.viewModel = viewModel;
 
         return binding.root
@@ -41,6 +41,7 @@ class ListArticleFragment : Fragment() {
             it.forEach {
                 val tv = TextView(context)
                 tv.text = it.titre
+                
                 binding.llListeArticles.addView(tv)
             }
         })

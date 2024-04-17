@@ -7,15 +7,15 @@ import com.example.eni_shop.dao.DaoType
 
 object ArticleRepository {
 
-    val articleDAO : ArticleDAO = DaoFactory.createArticleDAO(DaoType.MEMORY)
+    val articleDAO : ArticleDAO = DaoFactory.createArticleDAO(DaoType.NETWORK)
 
-    fun getArticle(id : Long) : Article? {
+    suspend fun getArticle(id : Long) : Article? {
         return articleDAO.selectById(id)
     }
-    fun addArticle(article: Article) : Long{
+    suspend fun addArticle(article: Article) : Long{
         return articleDAO.addNewOne(article)
     }
-    fun getAllArticles(): List<Article> {
+    suspend fun getAllArticles(): List<Article> {
         return articleDAO.selectAll()
     }
 

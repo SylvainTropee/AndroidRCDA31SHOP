@@ -4,15 +4,15 @@ import com.example.eni_shop.bo.Article
 import com.example.eni_shop.dao.ArticleDAO
 
 class ArticleDaoNetworkImpl : ArticleDAO {
-    override fun selectById(id: Long): Article? {
+    override suspend fun selectById(id: Long): Article? {
         TODO("Not yet implemented")
     }
 
-    override fun addNewOne(article: Article): Long {
+    override suspend fun addNewOne(article: Article): Long {
         TODO("Not yet implemented")
     }
 
-    override fun selectAll(): List<Article> {
-        TODO("Not yet implemented")
+    override suspend fun selectAll(): List<Article> {
+        return ApiEniShopService.Api.retrofitService.getArticles()
     }
 }
