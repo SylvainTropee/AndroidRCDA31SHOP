@@ -2,10 +2,12 @@ package com.example.androiddemo
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eni_shop.bo.Article
 import com.example.eni_shop.databinding.ArticleCellBinding
+import com.example.eni_shop.ui.articlelist.ListArticleFragmentDirections
 
 class ArticleAdapter : ListAdapter<Article, ArticleAdapter.ViewHolder>(ArticleDiffCallback()) {
 
@@ -44,6 +46,12 @@ class ArticleAdapter : ListAdapter<Article, ArticleAdapter.ViewHolder>(ArticleDi
             fun from(parent: ViewGroup) : ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ArticleCellBinding.inflate(layoutInflater, parent, false);
+
+                // Ajouter un evenement click listener
+                binding.itemView.setOnClickListener {
+                    val direction = ListArticleFragmentDirections.actionListeToDetailArticle(binding.article!!.id)
+                    Navigation.findNavController(it!!).navigate(direction)
+                }
 
                 return ViewHolder(parent, binding);
             }

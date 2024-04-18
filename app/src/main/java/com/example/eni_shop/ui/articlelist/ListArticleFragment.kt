@@ -39,8 +39,11 @@ class ListArticleFragment : Fragment() {
 
         // Ecoute quand la liste des articles est mise à jour
         viewModel.articles.observe(viewLifecycleOwner, Observer {
+
             val adapter = ArticleAdapter();
             binding.rvArticle.adapter = adapter;
+
+            // Envoyer les données dans l'adapter -> donc dans le recycler view
             adapter.submitList(it)
         })
 
@@ -49,9 +52,7 @@ class ListArticleFragment : Fragment() {
 
         // Le bouton pour voir un article
         binding.buttonToDetail.setOnClickListener {
-            // Ouvrir une page avec l'id en parametre
-            val direction = ListArticleFragmentDirections.actionListeToDetailArticle(viewModel.articles.value!!.random().id)
-            Navigation.findNavController(view).navigate(direction)
+            viewModel.syncArticles();
         }
 
     }
