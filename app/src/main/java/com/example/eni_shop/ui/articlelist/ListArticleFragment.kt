@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
+import com.example.androiddemo.ArticleAdapter
 import com.example.eni_shop.R
 import com.example.eni_shop.databinding.FragmentListArticleBinding
 import com.example.eni_shop.repository.ArticleRepository
@@ -38,12 +39,9 @@ class ListArticleFragment : Fragment() {
 
         // Ecoute quand la liste des articles est mise à jour
         viewModel.articles.observe(viewLifecycleOwner, Observer {
-            it.forEach {
-                val tv = TextView(context)
-                tv.text = it.titre
-
-                binding.llListeArticles.addView(tv)
-            }
+            val adapter = ArticleAdapter();
+            binding.rvArticle.adapter = adapter;
+            adapter.submitList(it)
         })
 
         // Appel la synchronisation des articles
