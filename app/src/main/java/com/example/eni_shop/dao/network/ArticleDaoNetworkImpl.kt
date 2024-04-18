@@ -5,7 +5,7 @@ import com.example.eni_shop.dao.ArticleDAO
 
 class ArticleDaoNetworkImpl : ArticleDAO {
     override suspend fun selectById(id: Long): Article? {
-        TODO("Not yet implemented")
+        return ApiEniShopService.Api.retrofitService.getArticleById(id);
     }
 
     override suspend fun addNewOne(article: Article): Long {

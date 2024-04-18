@@ -41,7 +41,7 @@ class ListArticleFragment : Fragment() {
             it.forEach {
                 val tv = TextView(context)
                 tv.text = it.titre
-                
+
                 binding.llListeArticles.addView(tv)
             }
         })
@@ -49,8 +49,10 @@ class ListArticleFragment : Fragment() {
         // Appel la synchronisation des articles
         viewModel.syncArticles();
 
+        // Le bouton pour voir un article
         binding.buttonToDetail.setOnClickListener {
-            val direction = ListArticleFragmentDirections.actionListeToDetailArticle(viewModel.articles.value!!.random())
+            // Ouvrir une page avec l'id en parametre
+            val direction = ListArticleFragmentDirections.actionListeToDetailArticle(viewModel.articles.value!!.random().id)
             Navigation.findNavController(view).navigate(direction)
         }
 

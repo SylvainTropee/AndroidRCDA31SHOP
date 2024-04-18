@@ -11,8 +11,8 @@
         android:label="fragment_detail_article"
         tools:layout="@layout/fragment_detail_article" >
         <argument
-            android:name="article"
-            app:argType="com.example.eni_shop.bo.Article" />
+            android:name="id"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/listArticleFragment"
